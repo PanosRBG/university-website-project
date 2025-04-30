@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Requirements for application</title>
+        <link rel="stylesheet" href="styles/menu.css"/>
+        <link rel="stylesheet" href="styles/requirements.css"/>
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="menu">
+                <nav>
+                    <a href="index.html" style="padding: 10px">Home</a>
+                    <p>Requirements</p>
+                    <a href="application.html">Application</a><br>
+                    <a href="log-in.html">Log-in/Sign-up</a><br>
+                    <a href="more.html">About</a><br>
+                </nav>
+            </div>
+            <div class="content">
+                <div class="req-list">
+                    <h1>Requirements for the ERASMUS program.</h1>
+                    <p>For a student to participate in the program the following requirements must be met before proceeding to apply.</p>
+                    <table>
+                        <tr>
+                            <th>Requirements</th>
+                        </tr>
+                        <tr>
+                            <td>1. The student must be a second year or higher.</td>
+                        </tr>
+                        <tr>
+                            <td>2. The sum of all the passed courses relative to the student's total courses must be at least 70%.</td>
+                        </tr>
+                        <tr>
+                            <td>3. The total score of the passed courses must be at least 6.5.</td>
+                        </tr>
+                        <tr>
+                            <td>4. The student must have at least a B2 level certification in English.</td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="eligibility-check">
+                    <h1>Check for eligibility</h1>
+                    <p>You can complete the following form to find out if you are eligible to participate in the program.</p>
+                    <form>
+                        <p>
+                            <label for="current-year">Current Year of Degree</label><br>
+                            <input list="current_year_selection" id="current-year" name="current-year" required>
+                            <datalist id="current_year_selection">
+                                <option value="1st year">
+                                <option value="2nd year">
+                                <option value="3rd year">
+                                <option value="4th year">
+                                <option value="higher">
+                            </datalist>
+                        </p>
+                        <p>
+                            <label for="passed-courses">Number of passed courses</label><br>
+                            <input type="number" id="passed-courses" name="passed-courses" min="0" max="100">
+                        <p>
+                            <label for="average-score">Average score of passed courses</label><br>
+                            <input type="number" id="average-score" name="average-score" min="0" max="10" step="0.1">
+                        </p>
+                        <p>
+                            English Level<br>
+                            <label for="level1">A1</label>
+                            <input type="radio" id="level1" name="language-level" value="A1" required>
+                            <label for="level2">A2</label>
+                            <input type="radio" id="level2" name="language-level" value="A2" required>
+                            <label for="level3">B1</label>
+                            <input type="radio" id="level3" name="language-level" value="B1" required>
+                            <label for="level4">B2</label>
+                            <input type="radio" id="level4" name="language-level" value="B2" required>
+                            <label for="level5">C1</label>
+                            <input type="radio" id="level5" name="language-level" value="C1" required>
+                            <label for="level6">C2</label>
+                            <input type="radio" id="level6" name="language-level" value="C2" required>
+                        </p>
+                        <p>
+                            <input type="submit" value="Submit">
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </body>
+
+    <footer>
+        <p>
+            Contact: placeholder@email.com |
+            <a href="https://erasmus-plus.ec.europa.eu/document/higher-education-institutions-holding-an-eche-2021-2027">Partners</a> |
+            <a href="more.html">About</a>
+        </p>
+        <p>&copy; 1791 Erasmus Program. All rights reserved. (not really)</p>
+    </footer>
+</html>

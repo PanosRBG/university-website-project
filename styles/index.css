@@ -1,0 +1,42 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1rem;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 200px auto;
+    height: 100vh;
+    background-image: url("../media/index_background.jpeg");
+    background-size: cover;
+}
+
+.context {
+    align-self: center;
+    justify-items: center;
+    background-color: rgba(57, 121, 147, 0.8);
+    margin: 25px;
+    padding: 50px;
+    transition: 2s;
+    border-radius: 10px;
+}
+
+h1 {
+    font-size: 2rem;
+    color: #00125e;
+}
+
+@media screen and (max-width: 600px) {
+    .container {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto 1fr;
+    }
+
+    .context {
+        margin: 0;
+        padding: 20px;
+        border-radius: 0px;
+    }
+}

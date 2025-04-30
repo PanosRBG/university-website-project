@@ -1,0 +1,46 @@
+.menu {
+    display: grid;
+    background-color: #397793;
+    height: 100vh;
+    box-shadow: 10px 0 15px rgba(0, 0, 0, 0.7);
+    z-index: 5;
+}
+
+.menu > nav > * {
+    display: grid;
+    justify-items: center;
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+.menu > nav > p {
+    color: #00125e;
+    margin: 10px 0;
+}
+
+footer {
+    background-color: #397793;
+    margin-top: 2px;
+    padding: 10px;
+    color: black;
+    text-align: center;
+}
+
+@media screen and (max-width: 600px) {
+    .menu {
+        height: 200px;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .menu > nav {
+        display: grid;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .menu > nav > * {
+        margin: 0 5px;
+        text-align: center;
+    }
+}

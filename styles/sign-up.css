@@ -1,0 +1,76 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Courier New', Courier, monospace;
+    color: black;
+    font-size: 1rem;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 200px auto;
+    height: 100vh;
+<<<<<<< HEAD
+    background-image: url('../media/login_background.jpg');
+    background-size: cover;
+=======
+    background-color: rgba(57, 119, 147, 0.63);
+}
+
+.menu {
+    background-color: #397793;
+    height: 100%;
+}
+
+nav > div > *{
+    display: grid;
+    align-items: start;
+    justify-items: center;
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+>>>>>>> 9028710c0ee9ea36fc100399a18cc10ca6fc77ee
+}
+
+.form {
+    align-self: center;
+    justify-self: center;
+    padding: 20px;
+<<<<<<< HEAD
+    background-color: rgba(57, 121, 147, 0.8);
+    border-radius: 10px;
+}
+
+.form > * > * {
+    padding: 5px;
+=======
+>>>>>>> 9028710c0ee9ea36fc100399a18cc10ca6fc77ee
+}
+
+h1 {
+    font-size: 2rem;
+<<<<<<< HEAD
+    color: #002e6c;
+}
+
+@media screen and (max-width: 600px) {
+    .container {
+        grid-template-columns: 1fr;
+        background-position-x: center;
+    }
+
+    .form {
+        align-self: start;
+        padding: -5px;
+        border-radius: 0px;
+    }
+}
+
+=======
+}
+
+footer {
+    background-color: #397793;
+    text-align: center;
+}
+>>>>>>> 9028710c0ee9ea36fc100399a18cc10ca6fc77ee

@@ -1,0 +1,46 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Courier New', Courier, monospace;
+    color: black;
+    font-size: 1rem;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 200px auto;
+    height: 100vh;
+<<<<<<< HEAD
+    background-color: rgb(61, 83, 193);
+=======
+    background-color: rgba(57, 119, 147, 0.63);
+>>>>>>> 9028710c0ee9ea36fc100399a18cc10ca6fc77ee
+}
+
+.content {
+    padding: 10px;
+}
+
+.content {
+    padding: 20px;
+}
+
+th {
+    font-size: 2rem;
+    text-align: start;
+}
+
+h1 {
+    font-size: 2rem;
+}
+
+@media screen and (max-width: 600px) {
+    .container {
+        height: auto;
+        grid-template-columns: 1fr;
+    }
+
+    .content {
+        padding: 20px;
+    }
+}

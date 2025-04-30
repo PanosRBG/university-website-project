@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Application form</title>
+        <link rel="stylesheet" href="styles/menu.css"/>
+        <link rel="stylesheet" href="styles/application.css"/>
+    </head>
+
+    <body>
+        <div class="container">
+            <div class ="menu">
+                <nav>
+                    <a href="index.html" style="padding: 10px">Home</a>
+                    <a href="requirements.html">Requirements</a>
+                    <p>Application</p>
+                    <a href="log-in.html">Log-in/Sign-up</a><br>
+                    <a href="more.html">About</a><br>
+                </nav>
+            </div>
+            <div class="content">
+                <h1>Application Form</h1>
+                <form>
+                    <p>
+                        <label for="first-name">First Name</label><br>
+                        <input type="text" id="first-name" required>
+                    </p>
+                    <p>
+                        <label for="last-name">Last Name</label><br>
+                        <input type="text" id="last-name" required>
+                    </p>
+                    <p>
+                        <label for="am">AM</label><br>
+                        <input type="number" id="am" required>
+                    </p>
+                    <p>
+                        <label for="passed-courses">Courses Passed</label><br>
+                        <input type="number" id="passed-courses" required>
+                    </p>
+                    <p>
+                        <label for="average-score">Average Score</label><br>
+                        <input type="number" id="average-score" required>
+                    </p>
+                    <p>
+                        English Level<br>
+                        <label for="level1">A1</label>
+                        <input type="radio" id="level1" name="language-level" value="A1" required>
+                        <label for="level2">A2</label>
+                        <input type="radio" id="level2" name="language-level" value="A2" required>
+                        <label for="level3">B1</label>
+                        <input type="radio" id="level3" name="language-level" value="B1" required>
+                        <label for="level4">B2</label>
+                        <input type="radio" id="level4" name="language-level" value="B2" required>
+                        <label for="level5">C1</label>
+                        <input type="radio" id="level5" name="language-level" value="C1" required>
+                        <label for="level6">C2</label>
+                        <input type="radio" id="level6" name="language-level" value="C2" required>
+                    </p>
+                    <p>
+                        More languages<br>
+                        <label for="affirmative">Yes</label>
+                        <input type="radio" id="affirmative" name="extra-languages" required>
+                        <label for="negative">No</label>
+                        <input type="radio" id="negative" name="extra-languages" required>
+                    </p>
+                    <p>
+                        <label for="first-uni">First Option</label><br>
+                        <input list="first_list" id="first-uni" name="first-choice" required>
+                        <datalist id="first_list">
+                            <option value="University of Bologna, Italy">
+                            <option value="Sorbonne University, France">
+                            <option value="University of Warsaw, Poland">
+                            <option value="University of Copenhagen, Denmark">
+                            <option value="University of Milan, Italy">
+                            <option value="Charles University, Czech Republic">
+                            <option value="University of Geneva, Switzerland">
+                            <option value="Heidelberg University, Germany">
+                            <option value="University of Lisbon, Portugal">
+                            <option value="University of Barcelona, Spain">
+                            <option value="University of Granada, Spain">
+                            <option value="University of Porto, Portugal">
+                            <option value="University of Ljubljana, Slovenia">
+                            <option value="University of Helsinki, Finland">
+                            <option value="University of Vienna, Austria">
+                            <option value="University of Amsterdam, Netherlands">
+                            <option value="University of Leuven, Belgium">
+                            <option value="University of Zagreb, Croatia">
+                            <option value="University of Tartu, Estonia">
+                            <option value="University of Gothenburg, Sweden">
+                        </datalist><br>
+
+                        <label for="second-uni">Second Option</label><br>
+                        <input list="second_list" id="second-uni" name="second-choice" required>
+                        <datalist id="second_list">
+                            <option value="University of Bologna, Italy">
+                            <option value="Sorbonne University, France">
+                            <option value="University of Warsaw, Poland">
+                            <option value="University of Copenhagen, Denmark">
+                            <option value="University of Milan, Italy">
+                            <option value="Charles University, Czech Republic">
+                            <option value="University of Geneva, Switzerland">
+                            <option value="Heidelberg University, Germany">
+                            <option value="University of Lisbon, Portugal">
+                            <option value="University of Barcelona, Spain">
+                            <option value="University of Granada, Spain">
+                            <option value="University of Porto, Portugal">
+                            <option value="University of Ljubljana, Slovenia">
+                            <option value="University of Helsinki, Finland">
+                            <option value="University of Vienna, Austria">
+                            <option value="University of Amsterdam, Netherlands">
+                            <option value="University of Leuven, Belgium">
+                            <option value="University of Zagreb, Croatia">
+                            <option value="University of Tartu, Estonia">
+                            <option value="University of Gothenburg, Sweden">
+                        </datalist><br>
+
+                        <label for="third-uni">Third Option</label><br>
+                        <input list="third_list" id="third-uni" name="third-choice" required>
+                        <datalist id="third_list">
+                            <option value="University of Bologna, Italy">
+                            <option value="Sorbonne University, France">
+                            <option value="University of Warsaw, Poland">
+                            <option value="University of Copenhagen, Denmark">
+                            <option value="University of Milan, Italy">
+                            <option value="Charles University, Czech Republic">
+                            <option value="University of Geneva, Switzerland">
+                            <option value="Heidelberg University, Germany">
+                            <option value="University of Lisbon, Portugal">
+                            <option value="University of Barcelona, Spain">
+                            <option value="University of Granada, Spain">
+                            <option value="University of Porto, Portugal">
+                            <option value="University of Ljubljana, Slovenia">
+                            <option value="University of Helsinki, Finland">
+                            <option value="University of Vienna, Austria">
+                            <option value="University of Amsterdam, Netherlands">
+                            <option value="University of Leuven, Belgium">
+                            <option value="University of Zagreb, Croatia">
+                            <option value="University of Tartu, Estonia">
+                            <option value="University of Gothenburg, Sweden">
+                        </datalist>
+                    </p>
+                    <p>
+                        <label for="score-document">Analytical Score</label><br>
+                        <input type="file" id="score-document" accept=".pdf" required>
+                    </p>
+                    <p>
+                        <label for="certificate">English Certificate</label><br>
+                        <input type="file" id="certificate" accept=".pdf" required>
+                    </p>
+                    <p>
+                        <label for="other-certificate">Other Language Certificates</label><br>
+                        <input type="file" id="other-certificate" accept=".pdf" required>
+                    </p>
+                    <p>
+                        <input type="checkbox" id="terms" required>
+                        <label for="terms">Agree to Terms and Conditions</label>
+                    </p>
+                    <p>
+                        <input type="submit" value="Submit">
+                    </p>
+                </form>
+            </div>
+        </div>
+    </body>
+
+    <footer>
+        <p>
+            Contact: placeholder@email.com |
+            <a href="https://erasmus-plus.ec.europa.eu/document/higher-education-institutions-holding-an-eche-2021-2027">Partners</a> |
+            <a href="more.html">About</a>
+        </p>
+        <p>&copy; 1791 Erasmus Program. All rights reserved. (not really)</p>
+    </footer>
+</html>
