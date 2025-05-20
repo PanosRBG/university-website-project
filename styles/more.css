@@ -5,31 +5,15 @@
     font-size: 1rem;
 }
 
+body {
+    background-image: url("../media/more-background.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
 .container {
     display: grid;
-    grid-template-columns: 200px auto;
-<<<<<<< HEAD
-    max-width: 100vh;
-    background-image: url("../media/more_background.jpg");
-    background-position-x: 10px;
-=======
-    background-color: rgba(57, 119, 147, 0.63);
-
-}
-
-.menu {
-    background-color: #397793;
-    height: 100%;
-}
-
-nav > div > * {
-    display: grid;
-    align-items: start;
-    justify-items: center;
-    color: white;
-    text-decoration: none;
-    font-size: 1rem;
->>>>>>> 9028710c0ee9ea36fc100399a18cc10ca6fc77ee
+    grid-template-columns: 200px 1fr;
 }
 
 .content {
@@ -39,32 +23,75 @@ nav > div > * {
 }
 
 .header {
-    background-color: rgba(57, 121, 147, 0.8);
     text-align: center;
     justify-items: center;
+
+}
+
+.header > h1 {
+    font-size: 2.5rem;
+    background-color: rgba(57, 121, 147, 0.8);
+    border-radius: 5px;
+    padding: 5px;
+    margin: 5px;
+    color: #002e6c;
 }
 
 .context {
     text-align: center;
     justify-items: center;
+    max-width: 900px;
+    background-color: rgba(57, 121, 147, 0.8);
+    border-radius: 5px;
+    padding: 5px;
 }
 
 .images {
-    text-align: center;
+    justify-self: center;
     justify-items: center;
-    list-style: none;
 }
 
 .extras {
-
+    padding: 30px;
+    background-color: rgba(57, 121, 147, 0.8);
+    border-radius: 5px;
 }
 
-h1 {
-    font-size: 2rem;
+@media screen and (max-width: 600px) {
+    .container {
+        grid-template-columns: 1fr;
+        height: 100%;
+    }
+
+    iframe {
+        width: 100%;
+        height: 50%;
+    }
+
+    .images {
+        gap: 10px;
+        padding: 10px;
+    }
+
+    .images img {
+        width: calc(50% - 15px); /* Two images per row on mobile */
+        height: auto;
+    }
 }
 
-@media screen and (min-width: 1200px) {
-    .context {
-        margin: 0 350px;
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+    .container {
+        grid-template-columns: 1fr;
+        height: 100%;
+    }
+
+    .images {
+        gap: 10px;
+        padding: 10px;
+    }
+
+    .images img {
+        width: calc(50% - 15px); /* Two images per row on tablet */
+        height: auto;
     }
 }
