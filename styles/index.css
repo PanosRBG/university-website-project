@@ -17,8 +17,8 @@
     align-self: center;
     justify-items: center;
     background-color: rgba(57, 121, 147, 0.8);
-    margin: 25px;
-    padding: 50px;
+    padding: 20px;
+    margin: 20px;
     transition: 2s;
     border-radius: 10px;
 }
@@ -34,9 +34,7 @@ h1 {
     }
 
     .context {
-        margin: 0;
-        padding: 20px;
-        border-radius: 0px;
+        border-radius: 0;
     }
 }
 
