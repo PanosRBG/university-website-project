@@ -29,63 +29,63 @@
                 
                 <form id="signup-form" onsubmit="signupCheck()">
                     <p>
-                        <label for="first-name">First Name</label><br>
-                        <input type="text" id="firstname">
+                        <label for="firstname">First Name</label><br>
+                        <input type="text" id="firstname" required>
                     </p>
 
                     <p>
-                        <label for="last-name">Last Name</label><br>
-                        <input type="text" id="lastname">
+                        <label for="lastname">Last Name</label><br>
+                        <input type="text" id="lastname" required>
                     </p>
 
                     <p>
-                        <label for="_username">Username</label><br>
-                        <input type="text" id="username">
+                        <label for="username">Username</label><br>
+                        <input type="text" id="username" required>
                     </p>
 
                     <p>
-                        <label for="_email">Email</label><br>
-                        <input type="email" id="_email">
+                        <label for="email">Email</label><br>
+                        <input type="email" id="email" required>
                     </p>
 
                     <p>
-                        <label for="_phonenumber">Phone Number</label><br>
-                        <input type="number" id="_phonenumber">
+                        <label for="phonenumber">Phone Number</label><br>
+                        <input type="number" id="phonenumber" required>
                     </p>
 
                     <p>
-                        <label for="_university">University</label><br>
-                        <input type="text" id="_university">
+                        <label for="university">University</label><br>
+                        <input type="text" id="university" required>
                     </p>
 
                     <p>
-                        <label for="_am">AM</label><br>
-                        <input type="number" id="_am">
+                        <label for="am">AM</label><br>
+                        <input type="number" id="am" required>
                     </p>
 
                     <p>
-                        <label for="_password">Password</label><br>
-                        <input type="password" id="_password">
+                        <label for="password">Password</label><br>
+                        <input type="password" id="password" required>
                     </p>
 
                     <p>
-                        <label for="_confirm_password">Confirm Password</label><br>
-                        <input type="password" id="_confirm_password">
+                        <label for="confirm_password">Confirm Password</label><br>
+                        <input type="password" id="confirm_password" required>
                     </p>
 
                     <p>
-                        <label for="_birth_date">Date of Birth</label><br>
-                        <input type="date" id="birth_date">
+                        <label for="birthdate">Date of Birth</label><br>
+                        <input type="date" id="birthdate" required>
                     </p>
 
                     <p>
-                        <label for="_male">Male</label>
-                        <input type="radio" id="male" name="_sex" value="male">
-                        <label for="_female">Female</label>
-                        <input type="radio" id="female" name="_sex" value="female">
+                        <label for="male">Male</label>
+                        <input type="radio" id="male" name="gender" value="male" required>
+                        <label for="female">Female</label>
+                        <input type="radio" id="female" name="gender" value="female" required>
                     </p>
                     
-                    <input type="submit" value="sign-up">
+                    <input class="button" type="submit">
                 </form>
                 
                 <p>By signing up, you agree to our <a href="terms.html">Terms and Conditions</a>.</p>

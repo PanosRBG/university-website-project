@@ -27,6 +27,12 @@
     padding: 5px;
 }
 
+.button {
+    padding: 2.5px;
+    margin-left: 5px;
+    margin-bottom: 5px;
+}
+
 h1 {
     font-size: 2rem;
     color: #002e6c;

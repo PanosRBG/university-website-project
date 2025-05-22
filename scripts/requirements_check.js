@@ -1,7 +1,9 @@
-function eligibleCheck() {
-    let form = document.getElementById("eligibility-form");
+let form = document.getElementById("eligibility-form");
+form.onsubmit = function (event) {
+    event.preventDefault();
+    
     let input_list = form.getElementsByTagName("input");
-
+    
     let year = input_list[0].value;
     let courses = input_list[1].value;
     let score = input_list[2].value;
@@ -9,10 +11,9 @@ function eligibleCheck() {
 
     if((year == "1st Year") || (courses < 70) || (score < 6.5)) {
         if((english == "A1") || (english == "A2") || (english == "B1")) {
-            alert("You are not eligible to participate in the erasmus program.");
+            alert("You are not eligible to participate in the Erasmus program.");
         }
-    }
-    else {
-        alert("You are elible to join the erasmus program.");
+    } else {
+        alert("You are eligible to join the Erasmus program.");
     }
 }

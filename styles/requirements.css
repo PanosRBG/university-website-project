@@ -38,6 +38,10 @@ th {
     text-align: start;
 }
 
+.eligibility-app > * > *{
+    padding: 5px;
+}
+
 @media screen and (max-width: 600px) {
     .container {
         grid-template-columns: 1fr;
