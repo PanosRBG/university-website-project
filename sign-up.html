@@ -7,6 +7,7 @@
         <title>Sign-up</title>
         <link rel="stylesheet" href="styles/menu.css"/>
         <link rel="stylesheet" href="styles/sign-up.css"/>
+        <script defer src="scripts/signup_check.js"></script>
     </head>
 
     <body>
@@ -26,15 +27,15 @@
             <div class="form">
                 <h1>Sign-up</h1>
                 
-                <form>
+                <form id="signup-form" onsubmit="signupCheck()">
                     <p>
                         <label for="first-name">First Name</label><br>
-                        <input type="text" id="first-name">
+                        <input type="text" id="firstname">
                     </p>
 
                     <p>
                         <label for="last-name">Last Name</label><br>
-                        <input type="text" id="last-name">
+                        <input type="text" id="lastname">
                     </p>
 
                     <p>
@@ -74,17 +75,17 @@
 
                     <p>
                         <label for="_birth_date">Date of Birth</label><br>
-                        <input type="date" id="_birth_date">
+                        <input type="date" id="birth_date">
                     </p>
 
                     <p>
                         <label for="_male">Male</label>
-                        <input type="radio" id="_male" name="_sex" value="male">
+                        <input type="radio" id="male" name="_sex" value="male">
                         <label for="_female">Female</label>
-                        <input type="radio" id="_female" name="_sex" value="female">
+                        <input type="radio" id="female" name="_sex" value="female">
                     </p>
                     
-                    <input type="submit" value="sign-up" onclick="alert('You are now signed up! (again, not really)')">
+                    <input type="submit" value="sign-up">
                 </form>
                 
                 <p>By signing up, you agree to our <a href="terms.html">Terms and Conditions</a>.</p>
