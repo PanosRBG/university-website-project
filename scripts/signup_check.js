@@ -16,63 +16,79 @@ form.onsubmit = function(event) {
     let birthdate = input_list[9].value;
     let sex = input_list[10].value;
 
+    let error = document.getElementById("firstnameError");
     if(hasNumbers(firstname)) {
-        input_list[0].style.borderColor = "red";
-        input_list[0].style.borderWidth = "2px";
+        error.textContent = "Numbers aren't allowed";
+        input_list[0].classList.add("error");
     }
     else {
-        input_list[0].style.border = null;
+        error.textContent = "";
+        input_list[0].classList.remove("error");
     }
 
+    error = document.getElementById("lastnameError");
     if(hasNumbers(lastname)) {
-        input_list[1].style.borderColor = "red";
-        input_list[1].style.borderWidth = "2px";
+        error.textContent = "Numbers aren't allowed";
+        input_list[1].classList.add("error");
     }
     else {
-        input_list[1].style.border = null;
+        error.textContent = "";
+        input_list[1].classList.remove("error");
     }
 
+    error = document.getElementById("emailError");
     if(!(/\.[a-z]{2,3}$/.test(email))) {
-        input_list[3].style.borderColor = "red";
-        input_list[3].style.borderWidth = "2px";
+        error.textContent = "Invalid email";
+        input_list[3].classList.add("error");
     }
     else {
-        input_list[3].style.border = "";    
+        error.textContent = "";
+        input_list[3].classList.remove("error");
     }
 
+    error = document.getElementById("phonenumberError");
     if(!(phonenumber.length == 10)) {
-        input_list[4].style.borderColor = "red";
-        input_list[4].style.borderWidth = "2px";
+        error.textContent = "Phonenumbers can only have 10 digits";
+        input_list[4].classList.add("error");
     }
     else {
-        input_list[4].style.border = "";
+        error.textContent = "";
+        input_list[4].classList.remove("error");
     }
 
+    error = document.getElementById("amError");
     if(!(am.length == 13) && !(am.startsWith("2022"))) {
-        input_list[6].style.borderColor = "red";
-        input_list[6].style.borderWidth = "2px"
+        error.textContent = "Invalid AM format";
+        input_list[6].classList.add("error");
     }
     else {
-        input_list[6].style.border = "";
+        error.textContent = "";
+        input_list[6].classList.remove("error");
     }
 
+    error = document.getElementById("passwordError");
     if((password.length < 5) && (!hasSpecialCharacters(password))) {
-        input_list[7].style.borderColor = "red";
-        input_list[7].style.borderWidth = "2px";
+        error.textContent = "Passwords must be at least 5 charactars \nand contain at least one special character";
+        input_list[7].classList.add("error");
     }
     else {
-        input_list[7].style.border = ""; 
+        error.textContent = "";
+        input_list[7].classList.remove("error");
     }
 
+    error = document.getElementById("passwordConfirmError");
+    let error2 =  document.getElementById("passwordError");
     if(!(password_confirm === password)) {
-        input_list[7].style.borderColor = "red";
-        input_list[7].style.borderWidth = "2px";
-        input_list[8].style.borderColor = "red";
-        input_list[8].style.borderWidth = "2px";
+        error2.textContent = "Passwords don't match.";
+        input_list[7].classList.add("error");
+        error.textContent = "Passwords don't match.";
+        input_list[8].classList.add("error");
     }
     else {
-        input_list[7].style.border = ""; 
-        input_list[8].style.border = ""; 
+        error.textContent = "";
+        input_list[7].classList.remove("error");
+        error.textContent = "";
+        input_list[8].classList.remove("error");
     }
 }
 
