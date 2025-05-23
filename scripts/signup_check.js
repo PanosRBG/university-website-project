@@ -1,101 +1,106 @@
 let form = document.getElementById("signup-form");
-form.onsubmit = function(event) {
+
+form.addEventListener("submit", function(event) {
     event.preventDefault();
-    
+
     let input_list = document.getElementsByTagName("input");
 
     let firstname = input_list[0].value;
     let lastname = input_list[1].value;
-    let username = input_list[2].value;
     let email = input_list[3].value;
     let phonenumber = input_list[4].value;
-    let university = input_list[5].value;
     let am = input_list[6].value;
     let password = input_list[7].value;
     let password_confirm = input_list[8].value;
-    let birthdate = input_list[9].value;
-    let sex = input_list[10].value;
+    let error = false;
 
-    let error = document.getElementById("firstnameError");
+    let firstnameError = document.getElementById("firstnameError");
     if(hasNumbers(firstname)) {
-        error.textContent = "Numbers aren't allowed";
+        firstnameError.textContent = "Numbers aren't allowed";
         input_list[0].classList.add("error");
+        error = true;
     }
     else {
-        error.textContent = "";
+        firstnameError.textContent = "";
         input_list[0].classList.remove("error");
     }
 
-    error = document.getElementById("lastnameError");
+    let lastnameError = document.getElementById("lastnameError");
     if(hasNumbers(lastname)) {
-        error.textContent = "Numbers aren't allowed";
+        lastnameError.textContent = "Numbers aren't allowed";
         input_list[1].classList.add("error");
+        error = true;
     }
     else {
-        error.textContent = "";
+        lastnameError.textContent = "";
         input_list[1].classList.remove("error");
     }
 
-    error = document.getElementById("emailError");
+    let emailError = document.getElementById("emailError");
     if(!(/\.[a-z]{2,3}$/.test(email))) {
-        error.textContent = "Invalid email";
+        emailError.textContent = "Invalid email";
         input_list[3].classList.add("error");
+        error = true;
     }
     else {
-        error.textContent = "";
+        emailError.textContent = "";
         input_list[3].classList.remove("error");
     }
 
-    error = document.getElementById("phonenumberError");
+    let phonenumberError = document.getElementById("phonenumberError");
     if(!(phonenumber.length == 10)) {
-        error.textContent = "Phonenumbers can only have 10 digits";
+        phonenumberError.textContent = "Phonenumbers can only have 10 digits";
         input_list[4].classList.add("error");
+        error = true;
     }
     else {
-        error.textContent = "";
+        phonenumberError.textContent = "";
         input_list[4].classList.remove("error");
     }
 
-    error = document.getElementById("amError");
+    let amError = document.getElementById("amError");
     if(!(am.length == 13) && !(am.startsWith("2022"))) {
-        error.textContent = "Invalid AM format";
+        amError.textContent = "Invalid AM format";
         input_list[6].classList.add("error");
+        error = true;
     }
     else {
-        error.textContent = "";
+        amError.textContent = "";
         input_list[6].classList.remove("error");
     }
 
-    error = document.getElementById("passwordError");
-    if((password.length < 5) && (!hasSpecialCharacters(password))) {
-        error.textContent = "Passwords must be at least 5 charactars \nand contain at least one special character";
+    let passwordError = document.getElementById("passwordError");
+    if((password.length < 5) || (!hasSpecialCharacters(password))) {
+        passwordError.textContent = "Passwords must be at least 5 characters and contain at least one special character";
         input_list[7].classList.add("error");
-    }
+        error = true;
+    } 
     else {
-        error.textContent = "";
+        passwordError.textContent = "";
         input_list[7].classList.remove("error");
     }
 
-    error = document.getElementById("passwordConfirmError");
-    let error2 =  document.getElementById("passwordError");
-    if(!(password_confirm === password)) {
-        error2.textContent = "Passwords don't match.";
-        input_list[7].classList.add("error");
-        error.textContent = "Passwords don't match.";
+    let passwordConfirmError = document.getElementById("passwordConfirmError");
+    if(password_confirm !== password) {
+        passwordConfirmError.textContent = "Passwords don't match.";
         input_list[8].classList.add("error");
-    }
+        error = true;
+    } 
     else {
-        error.textContent = "";
-        input_list[7].classList.remove("error");
-        error.textContent = "";
+        passwordConfirmError.textContent = "";
         input_list[8].classList.remove("error");
     }
+
+    if(!error) {
+        form.reset();
+        alert("Account created. You can now login!");
+    }
+});
+
+function hasNumbers(str) {
+    return /\d/.test(str);
 }
 
-function hasNumbers(string) {
-  return /\d/.test(string);
-}
-
-function hasSpecialCharacters(string) {
-    return /[^a-zA-Z0-9]/.test(string);
+function hasSpecialCharacters(str) {
+    return /[!@#$%^&*(),.?":{}|<>]/.test(str);
 }
