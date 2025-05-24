@@ -1,5 +1,9 @@
 <!DOCTYPE html>
 
+<?php 
+    session_start();
+?>
+
 <html>
     <head>
         <meta charset="UTF-8">
@@ -13,11 +17,11 @@
         <div class="container">
             <div class ="menu">
                 <nav>
-                    <a href="index.html" style="padding: 10px">Home</a>
-                    <a href="requirements.html">Requirements</a>
+                    <a href="index.php" style="padding: 10px">Home</a>
+                    <a href="requirements.php">Requirements</a>
                     <p>Application</p>
-                    <a href="log-in.html">Log-in/Sign-up</a><br>
-                    <a href="more.html">About</a><br>
+                    <a href="log-in.php">Log-in/Sign-up</a><br>
+                    <a href="more.php">About</a><br>
                 </nav>
             </div>
             <div class="content">
@@ -167,7 +171,7 @@
             <p>
                 Contact: placeholder@email.com |
                 <a href="https://erasmus-plus.ec.europa.eu/document/higher-education-institutions-holding-an-eche-2021-2027">Partners</a> |
-                <a href="more.html">About</a>
+                <a href="more.php">About</a>
             </p>
             <p>&copy; 1791 Erasmus Program. All rights reserved. (not really)</p>
         </footer>

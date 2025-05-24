@@ -1,10 +1,8 @@
 let form = document.getElementById("signup-form");
 
 form.addEventListener("submit", function(event) {
-    event.preventDefault();
-
+    // Extract all the user input from the HTML elements
     let input_list = document.getElementsByTagName("input");
-
     let firstname = input_list[0].value;
     let lastname = input_list[1].value;
     let email = input_list[3].value;
@@ -14,6 +12,7 @@ form.addEventListener("submit", function(event) {
     let password_confirm = input_list[8].value;
     let error = false;
 
+    // Conditional operations to check for info validation inserted by the user
     let firstnameError = document.getElementById("firstnameError");
     if(hasNumbers(firstname)) {
         firstnameError.textContent = "Numbers aren't allowed";
@@ -59,7 +58,7 @@ form.addEventListener("submit", function(event) {
     }
 
     let amError = document.getElementById("amError");
-    if(!(am.length == 13) && !(am.startsWith("2022"))) {
+    if(!(am.length == 13) || !(am.startsWith("2022"))) {
         amError.textContent = "Invalid AM format";
         input_list[6].classList.add("error");
         error = true;
@@ -91,16 +90,17 @@ form.addEventListener("submit", function(event) {
         input_list[8].classList.remove("error");
     }
 
-    if(!error) {
-        form.reset();
-        alert("Account created. You can now login!");
-    }
+    // Blocks the POST message if there are errors
+    if(error)
+        event.preventDefault();
 });
 
+// Check for digits inside a string
 function hasNumbers(str) {
     return /\d/.test(str);
 }
 
+// Check for special characters inside a string
 function hasSpecialCharacters(str) {
-    return /[!@#$%^&*(),.?":{}|<>]/.test(str);
+    return /[!@#$%^&*,.?]/.test(str);
 }
