@@ -1,93 +1,96 @@
 let form = document.getElementById("signup-form");
 
+if(form == null) {
+    form = document.getElementById("user-info");
+}
+
 form.addEventListener("submit", function(event) {
     // Extract all the user input from the HTML elements
-    let input_list = document.getElementsByTagName("input");
-    let firstname = input_list[0].value;
-    let lastname = input_list[1].value;
-    let email = input_list[3].value;
-    let phonenumber = input_list[4].value;
-    let am = input_list[6].value;
-    let password = input_list[7].value;
-    let password_confirm = input_list[8].value;
+    let firstname = document.getElementById("firstname");
+    let lastname = document.getElementById("lastname");
+    let email = document.getElementById("email");
+    let phonenumber = document.getElementById("phonenumber");
+    let am = document.getElementById("am");
+    let password = document.getElementById("password");
+    let password_confirm = document.getElementById("confirm_password");
     let error = false;
 
     // Conditional operations to check for info validation inserted by the user
     let firstnameError = document.getElementById("firstnameError");
-    if(hasNumbers(firstname)) {
+    if(hasNumbers(firstname.value)) {
         firstnameError.textContent = "Numbers aren't allowed";
-        input_list[0].classList.add("error");
+        firstname.classList.add("error");
         error = true;
     }
     else {
         firstnameError.textContent = "";
-        input_list[0].classList.remove("error");
+        firstname.classList.remove("error");
     }
 
     let lastnameError = document.getElementById("lastnameError");
-    if(hasNumbers(lastname)) {
+    if(hasNumbers(lastname.value)) {
         lastnameError.textContent = "Numbers aren't allowed";
-        input_list[1].classList.add("error");
+        lastname.classList.add("error");
         error = true;
     }
     else {
         lastnameError.textContent = "";
-        input_list[1].classList.remove("error");
+        lastname.classList.remove("error");
     }
 
     let emailError = document.getElementById("emailError");
-    if(!(/\.[a-z]{2,3}$/.test(email))) {
+    if(!(/\.[a-z]{2,3}$/.test(email.value))) {
         emailError.textContent = "Invalid email";
-        input_list[3].classList.add("error");
+        email.classList.add("error");
         error = true;
     }
     else {
         emailError.textContent = "";
-        input_list[3].classList.remove("error");
+        email.classList.remove("error");
     }
 
     let phonenumberError = document.getElementById("phonenumberError");
-    if(!(phonenumber.length == 10)) {
+    if(!(phonenumber.value.length == 10)) {
         phonenumberError.textContent = "Phonenumbers can only have 10 digits";
-        input_list[4].classList.add("error");
+        phonenumber.classList.add("error");
         error = true;
     }
     else {
         phonenumberError.textContent = "";
-        input_list[4].classList.remove("error");
+        phonenumber.classList.remove("error");
     }
 
     let amError = document.getElementById("amError");
-    if(!(am.length == 13) || !(am.startsWith("2022"))) {
+    if(!(am.value.length == 13) || !(am.value.startsWith("2022"))) {
         amError.textContent = "Invalid AM format";
-        input_list[6].classList.add("error");
+        am.classList.add("error");
         error = true;
     }
     else {
         amError.textContent = "";
-        input_list[6].classList.remove("error");
+        am.classList.remove("error");
     }
 
     let passwordError = document.getElementById("passwordError");
-    if((password.length < 5) || (!hasSpecialCharacters(password))) {
+    if((password.value.length < 5) || (!hasSpecialCharacters(password.value))) {
         passwordError.textContent = "Passwords must be at least 5 characters and contain at least one special character";
-        input_list[7].classList.add("error");
+        password.classList.add("error");
         error = true;
     } 
     else {
         passwordError.textContent = "";
-        input_list[7].classList.remove("error");
+        password.classList.remove("error");
     }
 
     let passwordConfirmError = document.getElementById("passwordConfirmError");
-    if(password_confirm !== password) {
+    if(password_confirm.value !== password.value) {
         passwordConfirmError.textContent = "Passwords don't match.";
-        input_list[8].classList.add("error");
+        password_confirm.classList.add("error");
         error = true;
     } 
     else {
         passwordConfirmError.textContent = "";
-        input_list[8].classList.remove("error");
+        password_confirm.classList.remove("error");
     }
 
     // Blocks the POST message if there are errors

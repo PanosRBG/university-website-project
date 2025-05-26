@@ -25,11 +25,13 @@
             
             <div class="menu">
                 <nav>
-                    <a href="index.php">Home</a><br>
-                    <a href="requirements.php">Requirements</a><br>
-                    <a href="application.php">Application</a>
-                    <p>Log-in/Sign-up</p>
-                    <a href="more.php">About</a>
+                    <?php
+                        echo('<a href="index.php">Home</a> 
+                            <a href="requirements.php">Requirements</a>
+                            <p>Application(Log-in)</p>
+                            <p>Log-in/Sign-up</p>
+                            <a href="more.php">About</a>');
+                    ?>
                 </nav>
             </div>
             

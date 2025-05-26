@@ -20,11 +20,11 @@
     $row = mysqli_fetch_assoc(
            mysqli_query($connection,
                         "SELECT * FROM users WHERE 
-                         Email='$email' OR AM='$am'")
-    );
+                         Username='$username' OR Email='$email' OR AM='$am'"
+    ));
 
-    if($row && ($row['Email'] == $email)) {
-        $_SESSION["message"] = 'Email already exists';
+    if($row && ($row['Username'] == $username)) {
+        $_SESSION["message"] = 'Username already exists';
         header("Location: ../sign-up.php");
         exit();
     }

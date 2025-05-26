@@ -15,16 +15,12 @@
     background-color: rgba(57, 119, 147, 0.63);
 }
 
-.sign-in-form {
+.signin-form {
     align-self: center;
     justify-self: center;
     padding: 20px;
     background-color: rgba(57, 121, 147, 0.8);
     border-radius: 10px;
-}
-
-.sign-in-form > * > *{
-    padding: 5px;
 }
 
 h1 {
@@ -37,7 +33,7 @@ h1 {
         grid-template-columns: 1fr;
     }
 
-    .sign-in-form {
+    .signin-form {
         align-self: start;
         border-radius: 0;
         padding: -5px;
@@ -49,7 +45,7 @@ h1 {
         grid-template-columns: 1fr;
     }
 
-    .sign-in-form {
+    .signin-form {
         align-self: start;
         border-radius: 10px;
     }

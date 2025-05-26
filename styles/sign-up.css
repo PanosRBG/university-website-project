@@ -41,6 +41,10 @@ input.error {
     border: 2px solid red;
 }
 
+label {
+    font-weight: bold;
+}
+
 h1 {
     font-size: 2rem;
     color: #002e6c;
@@ -55,7 +59,7 @@ h1 {
     .form {
         align-self: start;
         padding: -5px;
-        border-radius: 0px;
+        border-radius: 5px;
     }
 
     footer {

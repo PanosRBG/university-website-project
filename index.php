@@ -2,17 +2,17 @@
 
 <?php 
     session_start();
-    if (isset($_SESSION["message"])) {
-        echo "<script>alert(".json_encode($_SESSION["message"]).");</script>";
-        unset($_SESSION["message"]);
+    if (isset($_SESSION['message'])) {
+        echo "<script>alert(".json_encode($_SESSION['message']).");</script>";
+        unset($_SESSION['message']);
     }
 ?>
 
 <html lang="en">
     <head>
+        <title>The Erasmus Program</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>The Erasmus Program</title>
         <link rel="stylesheet" href="styles/menu.css"/>
         <link rel="stylesheet" href="styles/index.css"/>
     </head>
@@ -21,11 +21,31 @@
         <div class="container">
             <div class="menu">
                 <nav>
-                    <p>Home</p>
-                    <a href="requirements.php">Requirements</a><br>
-                    <a href="application.php">Application</a><br>
-                    <a href="log-in.php">Log-in/Sign-up</a><br>
-                    <a href="more.php">About</a><br>
+                    <?php
+                        if((isset($_SESSION['user']) && $_SESSION['user'] == 'root')) {
+                            echo('<p>Home</p>
+                                <a href="requirements.php">Requirements</a>
+                                <a href="application.php">Application</a>
+                                <a href="dashboard.php">Dashboard</a>
+                                <a href="log-out.php">Log-out</a>
+                                <a href="more.php">About</a>');
+                        }
+                        else if(isset($_SESSION['user'])) {
+                            echo('<p>Home</p>
+                                <a href="requirements.php">Requirements</a>
+                                <a href="application.php">Application</a>
+                                <a href="profile.php">Profile</a>
+                                <a href="log-out.php">Log-out</a>
+                                <a href="more.php">About</a>');
+                        }
+                        else {
+                            echo('<p>Home</p>
+                                <a href="requirements.php">Requirements</a>
+                                <p>Application(Log-in)</p>
+                                <a href="log-in.php">Log-in/Sign-up</a>
+                                <a href="more.php">About</a>');
+                        }
+                    ?>
                 </nav>
             </div>
             <div class="context">

@@ -2,16 +2,19 @@
 
 <?php 
     session_start();
+    if(isset($_SESSION["message"])) {
+        echo "<script>alert(".json_encode($_SESSION["message"]).");</script>";
+        unset($_SESSION["message"]);
+    }
 ?>
 
 <html>
     <head>
+        <title>Log-in</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Log-in</title>
         <link rel="stylesheet" href="styles/menu.css"/>
         <link rel="stylesheet" href="styles/log-in.css"/>
-        <script defer src="scripts/login_check.js"></script>
     </head>
 
     <body>
@@ -19,26 +22,28 @@
 
             <div class="menu">
                 <nav>
-                    <a href="index.php" style="padding-top: 8px;">Home</a><br>
-                    <a href="requirements.php">Requirements</a><br>
-                    <a href="application.php">Application</a>
-                    <p>Log-in/Sign-up</p>
-                    <a href="more.php">About</a>
+                    <?php
+                        echo('<a href="index.php">Home</a> 
+                            <a href="requirements.php">Requirements</a>
+                            <p>Application(Log-in)</p>
+                            <p>Log-in/Sign-up</p>
+                            <a href="more.php">About</a>');
+                    ?>
                 </nav>
             </div>
 
             <div class="sign-in-form">
                 <h1>Sign-in</h1>
-                <form>
+                <form id="signin-form" action="scripts/user_authentication.php" method="POST">
                     <p>
-                        <label for="email">Email</label><br>
-                        <input type="email" id="email">
+                        <label for="username">Username</label><br>
+                        <input type="username" id="username" name="username" required>
                     </p>
                     <p>
                         <label for="password">Password</label><br>
-                        <input type="password" id="password"><br>
+                        <input type="password" id="password" name="password" required><br>
                     </p>
-                    <input type="submit" value="login" id="login-button">
+                    <input type="submit" id="login-button" value="Log-in" >
                     <p>Don't have an account? <a href="sign-up.php">Sign-up here.</a></p>
                 </form>
             </div>

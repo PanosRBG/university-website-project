@@ -12,11 +12,11 @@
     color: white;
     text-decoration: none;
     font-size: 1rem;
+    margin: 10px;
 }
 
 .menu > nav > p {
     color: #00125e;
-    margin: 10px 0;
 }
 
 footer {
@@ -28,9 +28,16 @@ footer {
 }
 
 @media screen and (max-width: 600px) {
+    html, body {
+        max-width: 100vh;
+        margin: 0;
+        padding: 0;
+    }
+
     .menu {
-        height: 200px;
-        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+        max-width: 100vh;
+        height: 225px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
     }
 
     .menu > nav {
@@ -52,14 +59,14 @@ footer {
 
 @media screen and (min-width: 768px) and (max-width: 1024px) {
     .menu {
-        height: 200px;
+        height: 175px;
     }
 
     .menu > nav > * {
-        font-size: 1.2rem;
+        font-size: 1rem;
     }
 
     footer > * {
-        font-size: 1.2rem;
+        font-size: 1rem;
     }
 }

@@ -6,9 +6,9 @@
 
 <html lang="en">
     <head>
+        <title>About the erasmus program</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>About the erasmus program</title>
         <link rel="stylesheet" href="styles/menu.css"/>
         <link rel="stylesheet" href="styles/more.css"/>
     </head>
@@ -17,12 +17,31 @@
         <div class="container">
             <div class="menu">
                 <nav>
-                    <br>
-                    <a href="index.php">Home</a><br>
-                    <a href="requirements.php">Requirements</a><br>
-                    <a href="application.php">Application</a><br>
-                    <a href="log-in.php">Log-in/Sign-up</a>
-                    <p>About</p>
+                    <?php
+                        if(isset($_SESSION["user"]) && $_SESSION["user"] == 'root') {
+                            echo('<a href="index.php">Home</a> 
+                                <a href="requirements.php">Requirements</a>
+                                <a href="application.php">Application</a>
+                                <a href="dashboard.php">Dashboard</a>
+                                <a href="log-out.php">Log-out</a>
+                                <p>About</p>');
+                        }
+                        else if(isset($_SESSION["user"])) {
+                            echo('<a href="index.php">Home</a> 
+                                <a href="requirements.php">Requirements</a>
+                                <a href="application.php">Application</a>
+                                <a href="profile.php">Profile</a>
+                                <a href="log-out.php">Log-out</a>
+                                <p>About<p/>');
+                        }
+                        else {
+                            echo('<a href="index.php">Home</a> 
+                                <a href="requirements.php">Requirements</a>
+                                <p>Application(Log-in)</p>
+                                <a href="log-in.php">Log-in/Sign-up</a>
+                                <p>About</p>');
+                        }
+                    ?>
                 </nav>
             </div>
             <div class="content">

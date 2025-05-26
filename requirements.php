@@ -6,9 +6,9 @@
 
 <html>
     <head>
+        <title>Requirements for application</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Requirements for application</title>
         <link rel="stylesheet" href="styles/menu.css"/>
         <link rel="stylesheet" href="styles/requirements.css"/>
         <script defer src="scripts/requirements_check.js"></script>
@@ -19,11 +19,31 @@
 
             <div class="menu">
                 <nav>
-                    <a href="index.php" style="padding-top: 8px;">Home</a>
-                    <p>Requirements</p>
-                    <a href="application.php">Application</a><br>
-                    <a href="log-in.php">Log-in/Sign-up</a><br>
-                    <a href="more.php">About</a><br>
+                    <?php
+                        if(isset($_SESSION["user"]) && $_SESSION["user"] == 'root') {
+                            echo('<a href="index.php">Home</a>
+                                <p>Requirements</p>
+                                <a href="application.php">Application</a>
+                                <a href="dashboard.php">Dashboard</a>
+                                <a href="log-out.php">Log-out</a>
+                                <a href="more.php">About</a>');
+                        }
+                        else if(isset($_SESSION["user"])) {
+                            echo('<a href="index.php">Home</a>
+                                <p>Requirements</p>
+                                <a href="application.php">Application</a>
+                                <a href="profile.php">Profile</a>
+                                <a href="log-out.php">Log-out</a>
+                                <a href="more.php">About</a>');
+                        }
+                        else {
+                            echo('<a href="index.php">Home</a>
+                                <p>Requirements</p>
+                                <p>Application(Log-in)</p>
+                                <a href="log-in.php">Log-in/Sign-up</a>
+                                <a href="more.php">About</a>');
+                        }
+                    ?>
                 </nav>
             </div>
 
