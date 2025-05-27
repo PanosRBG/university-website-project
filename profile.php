@@ -39,12 +39,17 @@
             <div class="menu">
                 <nav>
                     <?php
-                        echo('<a href="index.php">Home</a>
+                        if(isset($_SESSION['user']) && $_SESSION['user'] != 'root') {
+                            echo('<a href="index.php">Home</a>
                             <a href="requirements.php">Requirements</a>
                             <a href="application.php">Application</a>
                             <p>Profile</p>
                             <a href="log-out.php">Log-out</a>
                             <a href="more.php">About</a>');
+                        }
+                        else {
+                            header("Location: index.php");
+                        }
                     ?>
                 </nav>
             </div>

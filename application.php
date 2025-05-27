@@ -59,6 +59,27 @@
             </div>
             <div class="content">
                 <h1>Application Form</h1>
+                
+                <?php
+                    $dates = mysqli_fetch_assoc(
+                        mysqli_query($connection, "SELECT * FROM dates WHERE ID='1'"));
+                    if($dates) {
+                        $startdate = $dates['StartDate'];
+                        $enddate = $dates['EndDate'];
+
+                        if((date('Y-m-d') < $startdate) || (date('Y-m-d') > $enddate)) {
+                            echo'<p>Application submission has not started yet.</p>';
+                        }
+                        else {
+                            echo'';
+                        }
+                    }
+                    else {
+                        echo'<p>Application submission has not started yet.</p>';
+                    }
+                    
+                ?>
+                
                 <form id="application-form" action="scripts/application_handler.php"
                     method="POST" enctype="multipart/form-data">
                     <p>
@@ -111,76 +132,40 @@
                         <label for="firstuni">First Option</label><br>
                         <input list="firstlist" id="firstuni" name="firstuni" required>
                         <datalist id="firstlist">
-                            <option value="University of Bologna, Italy">
-                            <option value="Sorbonne University, France">
-                            <option value="University of Warsaw, Poland">
-                            <option value="University of Copenhagen, Denmark">
-                            <option value="University of Milan, Italy">
-                            <option value="Charles University, Czech Republic">
-                            <option value="University of Geneva, Switzerland">
-                            <option value="Heidelberg University, Germany">
-                            <option value="University of Lisbon, Portugal">
-                            <option value="University of Barcelona, Spain">
-                            <option value="University of Granada, Spain">
-                            <option value="University of Porto, Portugal">
-                            <option value="University of Ljubljana, Slovenia">
-                            <option value="University of Helsinki, Finland">
-                            <option value="University of Vienna, Austria">
-                            <option value="University of Amsterdam, Netherlands">
-                            <option value="University of Leuven, Belgium">
-                            <option value="University of Zagreb, Croatia">
-                            <option value="University of Tartu, Estonia">
-                            <option value="University of Gothenburg, Sweden">
+                            <?php 
+                            
+                                $result = mysqli_query($connection, "SELECT * FROM universities");
+                                while($universities = mysqli_fetch_assoc($result)) {
+                                    echo"<option value='{$universities['Name']}, {$universities['Country']}'></option>";
+                                }
+                                
+                            ?>
                         </datalist><br>
 
                         <label for="seconduni">Second Option</label><br>
                         <input list="secondlist" id="seconduni" name="seconduni">
                         <datalist id="secondlist">
-                            <option value="University of Bologna, Italy">
-                            <option value="Sorbonne University, France">
-                            <option value="University of Warsaw, Poland">
-                            <option value="University of Copenhagen, Denmark">
-                            <option value="University of Milan, Italy">
-                            <option value="Charles University, Czech Republic">
-                            <option value="University of Geneva, Switzerland">
-                            <option value="Heidelberg University, Germany">
-                            <option value="University of Lisbon, Portugal">
-                            <option value="University of Barcelona, Spain">
-                            <option value="University of Granada, Spain">
-                            <option value="University of Porto, Portugal">
-                            <option value="University of Ljubljana, Slovenia">
-                            <option value="University of Helsinki, Finland">
-                            <option value="University of Vienna, Austria">
-                            <option value="University of Amsterdam, Netherlands">
-                            <option value="University of Leuven, Belgium">
-                            <option value="University of Zagreb, Croatia">
-                            <option value="University of Tartu, Estonia">
-                            <option value="University of Gothenburg, Sweden">
+                            <?php 
+                            
+                                $result = mysqli_query($connection, "SELECT * FROM universities");
+                                while($universities = mysqli_fetch_assoc($result)) {
+                                    echo"<option value='{$universities['Name']}, {$universities['Country']}'></option>";
+                                }
+                                
+                            ?>
                         </datalist><br>
 
                         <label for="thirduni">Third Option</label><br>
                         <input list="thirdlist" id="thirduni" name="thirduni">
                         <datalist id="thirdlist">
-                            <option value="University of Bologna, Italy">
-                            <option value="Sorbonne University, France">
-                            <option value="University of Warsaw, Poland">
-                            <option value="University of Copenhagen, Denmark">
-                            <option value="University of Milan, Italy">
-                            <option value="Charles University, Czech Republic">
-                            <option value="University of Geneva, Switzerland">
-                            <option value="Heidelberg University, Germany">
-                            <option value="University of Lisbon, Portugal">
-                            <option value="University of Barcelona, Spain">
-                            <option value="University of Granada, Spain">
-                            <option value="University of Porto, Portugal">
-                            <option value="University of Ljubljana, Slovenia">
-                            <option value="University of Helsinki, Finland">
-                            <option value="University of Vienna, Austria">
-                            <option value="University of Amsterdam, Netherlands">
-                            <option value="University of Leuven, Belgium">
-                            <option value="University of Zagreb, Croatia">
-                            <option value="University of Tartu, Estonia">
-                            <option value="University of Gothenburg, Sweden">
+                            <?php 
+                            
+                                $result = mysqli_query($connection, "SELECT * FROM universities");
+                                while($universities = mysqli_fetch_assoc($result)) {
+                                    echo"<option value='{$universities['Name']}, {$universities['Country']}'></option>";
+                                }
+                                
+                            ?>
                         </datalist>
                     </p>
                     <p>
@@ -201,7 +186,21 @@
                         <label for="terms">Agree to Terms and Conditions</label>
                     </p>
                     <p>
-                        <input type="submit" value="Submit">
+                        <?php
+
+                            if($dates) {
+                                if((date('Y-m-d') < $startdate) || (date('Y-m-d') > $enddate)) {
+                                    echo"<input type='submit' value='Submit' disabled>";
+                                }
+                                else {
+                                    echo"<input type='submit' value='Submit'>";
+                                }
+                            }
+                            else {
+                                echo"<input type='submit' value='Submit' disabled>";
+                            }
+
+                        ?>
                     </p>
                     <?php mysqli_close($connection); ?>
                 </form>
