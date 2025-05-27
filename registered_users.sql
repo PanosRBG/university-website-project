@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: May 26, 2025 at 04:17 PM
+-- Generation Time: May 27, 2025 at 10:54 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -24,16 +24,15 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `application`
+-- Table structure for table `applications`
 --
 
-CREATE TABLE `application` (
+CREATE TABLE `applications` (
   `ID` int(11) NOT NULL,
   `FirstName` varchar(32) NOT NULL,
   `LastName` varchar(32) NOT NULL,
   `AM` varchar(13) NOT NULL,
-  `Courses` varchar(3) NOT NULL,
-  `Passed` varchar(3) NOT NULL,
+  `CoursesPassed` double NOT NULL,
   `Score` varchar(3) NOT NULL,
   `EngLvl` varchar(2) NOT NULL,
   `MoreLng` varchar(3) DEFAULT NULL,
@@ -46,6 +45,14 @@ CREATE TABLE `application` (
   `Accepted` varchar(3) DEFAULT NULL,
   `UserID` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `applications`
+--
+
+INSERT INTO `applications` (`ID`, `FirstName`, `LastName`, `AM`, `CoursesPassed`, `Score`, `EngLvl`, `MoreLng`, `FirstUni`, `SecondUni`, `ThirdUni`, `GradeFile`, `EngCert`, `OthrCert`, `Accepted`, `UserID`) VALUES
+(6, 'test', 'test', '2022202100000', 0, '6.9', 'C2', 'no', 'University of Bologna, Italy', 'University of Lisbon, Portugal', 'University of Vienna, Austria', 'D:xampphtdocserasmus-projectscripts/../uploads/test1/Placeholder-PDF.pdf', 'D:xampphtdocserasmus-projectscripts/../uploads/test1/Placeholder-PDF.pdf/', '', NULL, 2),
+(7, 'test', 'test', '2022202100000', 0.5, '6.9', 'C2', 'no', 'University of Bologna, Italy', 'University of Lisbon, Portugal', 'University of Vienna, Austria', 'D:xampphtdocserasmus-projectscripts/../uploads/test1/Placeholder-PDF.pdf', 'D:xampphtdocserasmus-projectscripts/../uploads/test1/Placeholder-PDF.pdf/', '', NULL, 2);
 
 -- --------------------------------------------------------
 
@@ -73,16 +80,16 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`ID`, `FirstName`, `LastName`, `Username`, `Email`, `PhoneNumber`, `University`, `AM`, `Password`, `Birthdate`, `Gender`) VALUES
 (1, 'admin', 'admin', 'root', 'admin@root.com', '0000000000', 'localhost', '0000000000000', 'admin.', '9999-12-30', 'male'),
-(2, 'testt', 'testt', 'test1', 'test1@testing.com', '1234567890', 'testing', '2022202100000', '1234.', '2025-05-26', 'male');
+(2, 'test', 'test', 'test1', 'test1@testing.com', '1234567890', 'testing', '2022202100000', '1234.', '2025-05-26', 'male');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `application`
+-- Indexes for table `applications`
 --
-ALTER TABLE `application`
+ALTER TABLE `applications`
   ADD PRIMARY KEY (`ID`),
   ADD KEY `UserID` (`UserID`);
 
@@ -97,10 +104,10 @@ ALTER TABLE `users`
 --
 
 --
--- AUTO_INCREMENT for table `application`
+-- AUTO_INCREMENT for table `applications`
 --
-ALTER TABLE `application`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `applications`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `users`
@@ -113,10 +120,10 @@ ALTER TABLE `users`
 --
 
 --
--- Constraints for table `application`
+-- Constraints for table `applications`
 --
-ALTER TABLE `application`
-  ADD CONSTRAINT `application_ibfk_1` FOREIGN KEY (`UserID`) REFERENCES `users` (`ID`) ON DELETE CASCADE;
+ALTER TABLE `applications`
+  ADD CONSTRAINT `applications_ibfk_1` FOREIGN KEY (`UserID`) REFERENCES `users` (`ID`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
