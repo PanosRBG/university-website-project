@@ -30,7 +30,7 @@
                             echo('<a href="index.php">Home</a>
                                 <a href="requirements.php">Requirements</a>
                                 <a href="application.php">Application</a>
-                                <a href="dashboard.php">Dashboard</a>
+                                <p>Dashboard</p>
                                 <a href="log-out.php">Log-out</a>
                                 <a href="more.php">About</a>');
                         }

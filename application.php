@@ -38,7 +38,7 @@
                         if(isset($_SESSION['user']) && $_SESSION['user'] == 'root') {
                             echo('<a href="index.php">Home</a>
                                 <a href="requirements.php">Requirements</a>
-                                <a href="application.php">Application</a>
+                                <p>Application</p>
                                 <a href="dashboard.php">Dashboard</a>
                                 <a href="log-out.php">Log-out</a>
                                 <a href="more.php">About</a>');
