@@ -51,6 +51,9 @@
                                 <a href="log-out.php">Log-out</a>
                                 <a href="more.php">About</a>');
                         }
+                        else {
+                            header("Location: index.php");
+                        }
                     ?>
                 </nav>
             </div>
@@ -72,15 +75,15 @@
                     </p>
                     <p>
                         <label for="courses">Total Courses</label><br>
-                        <input type="number" id="courses" name="courses" required>
+                        <input type="number" id="courses" name="courses" min="1" max="999" required>
                     </p>
                     <p>
                         <label for="passedcourses">Courses Passed</label><br>
-                        <input type="number" id="passedcourses" name="passedcourses" required>
+                        <input type="number" id="passedcourses" name="passedcourses" min="1" max="999" required>
                     </p>
                     <p>
                         <label for="avgscore">Average Score</label><br>
-                        <input type="number" id="avgscore" name="avgscore" required>
+                        <input type="number" id="avgscore" name="avgscore" min="0" max="100" step="0.1" required>
                     </p>
                     <p>
                         English Level<br>
@@ -100,9 +103,9 @@
                     <p>
                         More languages<br>
                         <label for="affirmative">Yes</label>
-                        <input type="radio" id="yes" name="extralangs" value="yes">
+                        <input type="radio" id="yes" name="extralangs" value="YES">
                         <label for="negative">No</label>
-                        <input type="radio" id="no" name="extralangs" value="no">
+                        <input type="radio" id="no" name="extralangs" value="NO">
                     </p>
                     <p>
                         <label for="firstuni">First Option</label><br>

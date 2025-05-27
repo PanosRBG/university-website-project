@@ -12,11 +12,11 @@
         $connection = mysqli_connect($db_server, $db_username, $db_password);
         mysqli_set_charset($connection, "utf8");
         mysqli_select_db($connection, 'registered_users');
-        $error_message = "Connection established.";
+        $error_message = 'Connection established.';
     }
     catch(mysqli_sql_exception) {
-        $error_message = "Connection lost.";
-        header("Location: ../erasmus-project/index.php");
+        $error_message = 'Connection lost.';
+        header('Location: ../erasmus-project/index.php');
         exit();
     }
     

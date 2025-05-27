@@ -24,22 +24,22 @@
     ));
 
     if($row && ($row['Username'] == $username)) {
-        $_SESSION["message"] = 'Username already exists';
-        header("Location: ../sign-up.php");
+        $_SESSION['message'] = 'Username already exists';
+        header('Location: ../sign-up.php');
         exit();
     }
     
     if($row && ($row['AM'] == $am)){
-        $_SESSION["message"] = 'AM already exists';
-        header("Location: ../sign-up.php");
+        $_SESSION['message'] = 'AM already exists';
+        header('Location: ../sign-up.php');
         exit();
     }
 
     mysqli_query($connection, "INSERT INTO users 
         (FirstName, LastName, Username, Email, PhoneNumber, University, AM, Password, Birthdate, Gender) VALUES 
         ('$firstname', '$lastname', '$username', '$email', '$phonenumber', '$university', '$am', '$password', '$birthdate', '$gender')");
-    $_SESSION["message"] = 'Registration successful!';
-    header("Location: ../index.php");
+    $_SESSION['message'] = 'Registration successful!';
+    header('Location: ../index.php');
 
     mysqli_close($connection);
 ?>

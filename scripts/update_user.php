@@ -11,5 +11,6 @@
                                 Password='{$_POST['password']}'
                                 WHERE Username='{$_SESSION['user']}'");
     $_SESSION['message'] = 'Your information has been updated.';
+
     header('Location: ../index.php')
 ?>

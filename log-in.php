@@ -2,9 +2,9 @@
 
 <?php 
     session_start();
-    if(isset($_SESSION["message"])) {
-        echo "<script>alert(".json_encode($_SESSION["message"]).");</script>";
-        unset($_SESSION["message"]);
+    if(isset($_SESSION['message'])) {
+        echo "<script>alert(".json_encode($_SESSION['message']).");</script>";
+        unset($_SESSION['message']);
     }
 ?>
 

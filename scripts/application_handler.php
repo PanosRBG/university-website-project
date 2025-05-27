@@ -13,6 +13,7 @@
     $am = $_POST['am'];
     $courses = $_POST['courses'];
     $passed = $_POST['passedcourses'];
+    $courses = ($passed/$courses);
     $avgscore = $_POST['avgscore'];
     $languagelevel = $_POST['languagelevel'];
     $firstuni = $_POST['firstuni'];
@@ -49,9 +50,9 @@
     
     $check = mysqli_query($connection, 
         "INSERT INTO applications 
-        (FirstName, LastName, AM, Courses, Passed, Score, EngLvl, MoreLng, FirstUni, SecondUni, ThirdUni, GradeFile, EngCert, OthrCert, Accepted, UserID) 
+        (FirstName, LastName, AM, CoursesPassed, Score, EngLvl, MoreLng, FirstUni, SecondUni, ThirdUni, GradeFile, EngCert, OthrCert, Accepted, UserID) 
         VALUES 
-        ('$firstname','$lastname','$am','$courses','$passed','$avgscore','$languagelevel','$extralangs', '$firstuni', '$seconduni', '$thirduni', '$grades', '$cert','$others', NULL, '{$_SESSION['userID']}')");
+        ('$firstname','$lastname','$am','$courses','$avgscore','$languagelevel','$extralangs', '$firstuni', '$seconduni', '$thirduni', '$grades', '$cert','$others', NULL, '{$_SESSION['userID']}')");
     
     if($check) {
         $_SESSION['message'] = 'Application submitted successfuly';
