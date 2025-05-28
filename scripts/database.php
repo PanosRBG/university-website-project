@@ -16,7 +16,7 @@
     }
     catch(mysqli_sql_exception) {
         $error_message = 'Connection lost.';
-        header('Location: ../erasmus-project/index.php');
+        header('Location: ../index.php');
         exit();
     }
     

@@ -8,15 +8,35 @@
         mkdir($dir, 0755);
     }
 
-    $firstname = $_POST['firstname'];
-    $lastname = $_POST['lastname'];
-    $am = $_POST['am'];
-    $courses = $_POST['courses'];
-    $passed = $_POST['passedcourses'];
-    $courses = ($passed/$courses);
-    $avgscore = $_POST['avgscore'];
-    $languagelevel = $_POST['languagelevel'];
-    $firstuni = $_POST['firstuni'];
+    if(isset($_POST['firstname'])) {
+        $firstname = $_POST['firstname'];
+    }
+
+    if(isset($_POST['lastname'])) {
+        $lastname = $_POST['lastname'];
+    }
+    
+    if(isset($_POST['am'])) {
+        $am = $_POST['am'];
+    }
+
+    if(isset($_POST['passedcourses'], $_POST['courses'])) {
+        $courses = $_POST['courses'];
+        $passed = $_POST['passedcourses'];
+        $courses = ($passed/$courses);
+    }
+
+    if(isset($_POST['avgscore'])) {
+        $avgscore = $_POST['avgscore'];
+    }
+
+    if(isset($_POST['languagelevel'])) {
+        $languagelevel = $_POST['languagelevel'];
+    }
+
+    if(isset($_POST['firstuni'])) {
+        $firstuni = $_POST['firstuni'];
+    }   
 
     if(isset($_POST['extralangs'])) 
         $extralangs = $_POST['extralangs'];

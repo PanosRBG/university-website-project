@@ -1,7 +1,7 @@
 <?php
 
     session_start();
-    include("database.php");
+    include('database.php');
     
     $firstname = $_POST['firstname'];
     $lastname = $_POST['lastname'];
@@ -13,9 +13,6 @@
     $password = $_POST['password'];
     $birthdate = $_POST['birthdate'];
     $gender = $_POST['gender'];
-    
-
-    mysqli_query($connection, "USE registered_users");
 
     $row = mysqli_fetch_assoc(
            mysqli_query($connection,
