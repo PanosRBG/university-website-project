@@ -32,7 +32,7 @@
                 </nav>
             </div>
 
-            <div class="sign-in-form">
+            <div class="signin-form">
                 <h1>Sign-in</h1>
                 <form id="signin-form" action="scripts/user_authentication.php" method="POST">
                     <p>
