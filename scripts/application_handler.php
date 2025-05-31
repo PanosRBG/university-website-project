@@ -45,19 +45,34 @@
         $thirduni = null;
     }
 
+    $others = null;
     if(!empty($_FILES)) {
-        $grades = $dir.'/'.$_FILES['grades']['name'];
-        move_uploaded_file($_FILES['grades']['tmp_name'], $grades);
-        
-        $cert = $dir.'/'.$_FILES['certificate']['name'];
-        move_uploaded_file($_FILES['certificate']['tmp_name'], $cert);
-        
-        if(isset($_FILES['others']) && $_FILES['others']['error'] != 4) {
-            $others = $dir.'/'.$_FILES['others']['name'];
-            move_uploaded_file($_FILES['others']['tmp_name'], $others);
+        if (isset($_FILES['grades']) && ($_FILES['grades']['error'] != 4)) {
+            $grades = $dir.'/'.basename($_FILES['grades']['name']);
+            move_uploaded_file($_FILES['grades']['tmp_name'], $grades);
+        } else {
+            $grades = null;
         }
-        else 
-            $others = NULL;
+
+        if (isset($_FILES['certificate']) && $_FILES['certificate']['error'] != 4) {
+            $cert = $dir.'/'.basename($_FILES['certificate']['name']);
+            move_uploaded_file($_FILES['certificate']['tmp_name'], $cert);
+        } else {
+            $cert = null;
+        }
+
+        $othersArr = [];
+        if (isset($_FILES['others']) && isset($_FILES['others']['name']) && is_array($_FILES['others']['name'])) {
+            for ($i = 0; $i < count($_FILES['others']['name']); $i++) {
+                if (isset($_FILES['others']['error'][$i]) && $_FILES['others']['error'][$i] == 0) {
+                    $filename = basename($_FILES['others']['name'][$i]);
+                    $filepath = $dir . '/' . $filename;
+                    move_uploaded_file($_FILES['others']['tmp_name'][$i], $filepath);
+                    $othersArr[] = $filepath;
+                }
+            }
+            $others = !empty($othersArr) ? implode(',', $othersArr) : null;
+        }
     }
     
     $check = mysqli_query($connection, 

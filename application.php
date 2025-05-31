@@ -174,7 +174,7 @@
                     </p>
                     <p>
                         <label for="others">Other Language Certificates</label><br>
-                        <input type="file" id="others" name="others" accept=".pdf" multiple>
+                        <input type="file" id="others" name="others[]" accept=".pdf" multiple>
                     </p>
                     <p>
                         <br>
