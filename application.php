@@ -3,10 +3,6 @@
 <?php 
     session_start();
     include('scripts/database.php');
-    if(isset($_SESSION['message'])) {
-        echo "<script>alert(".json_encode($_SESSION['message']).");</script>";
-        unset($_SESSION['message']);
-    }
     $user_info = mysqli_fetch_assoc( 
         mysqli_query($connection, "SELECT * FROM users WHERE Username='{$_SESSION['user']}'"));
 
@@ -178,7 +174,7 @@
                     </p>
                     <p>
                         <label for="others">Other Language Certificates</label><br>
-                        <input type="file" id="others" name="others" accept=".pdf">
+                        <input type="file" id="others" name="others" accept=".pdf" multiple>
                     </p>
                     <p>
                         <br>
@@ -199,10 +195,9 @@
                             else {
                                 echo"<input type='submit' value='Submit' disabled>";
                             }
-
+                            mysqli_close($connection);
                         ?>
                     </p>
-                    <?php mysqli_close($connection); ?>
                 </form>
             </div>
         </div>
@@ -214,5 +209,23 @@
             </p>
             <p>&copy; 1791 Erasmus Program. All rights reserved. (not really)</p>
         </footer>
+        
+        <?php if(isset($_SESSION['message'])): ?>
+        <div id="notification" style="
+            position:fixed;top:30px;left:50%;transform:translateX(-50%);
+            background:#f8d7da;color:#721c24;padding:16px 32px;border-radius:8px;
+            box-shadow:0 2px 8px rgba(0,0,0,0.15);z-index:9999;
+            font-size:1.1em;">
+            <?php echo htmlspecialchars($_SESSION['message']); ?>
+        </div>
+        <script>
+            setTimeout(function() {
+                var n = document.getElementById('notification');
+                if(n) n.style.display = 'none';
+            }, 4000);
+        </script>
+        <?php unset($_SESSION['message']); ?>
+        <?php endif; ?>
+        
     </body>
 </html>

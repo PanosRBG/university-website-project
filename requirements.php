@@ -12,6 +12,7 @@
         <link rel="stylesheet" href="styles/menu.css"/>
         <link rel="stylesheet" href="styles/requirements.css"/>
         <script defer src="scripts/requirements_check.js"></script>
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     </head>
 
     <body>
@@ -91,12 +92,12 @@
 
                         <p>
                             <label for="passed-courses">Number of passed courses</label><br>
-                            <input type="number" id="passed-courses"  min="0" max="100" required>
+                            <input type="number" id="passed-courses"  min="0" max="999" required>
                         </p>
 
                         <p>
                             <label for="average-score">Average score of passed courses</label><br>
-                            <input type="number" id="average-score"  min="0" max="10" step="0.1" required>
+                            <input type="number" id="average-score"  min="0" max="100" step="0.1" required>
                         </p>
 
                         <p>
@@ -135,6 +136,21 @@
             </p>
             <p>&copy; 1791 Erasmus Program. All rights reserved. (not really)</p>
         </footer>
-        
+            <?php if(isset($_SESSION['message'])): ?>
+            <div id="notification" style="
+                position:fixed;top:30px;left:50%;transform:translateX(-50%);
+                background:#f8d7da;color:#721c24;padding:16px 32px;border-radius:8px;
+                box-shadow:0 2px 8px rgba(0,0,0,0.15);z-index:9999;
+                font-size:1.1em;">
+                <?php echo htmlspecialchars($_SESSION['message']); ?>
+            </div>
+            <script>
+                setTimeout(function() {
+                    var n = document.getElementById('notification');
+                    if(n) n.style.display = 'none';
+                }, 4000);
+            </script>
+            <?php unset($_SESSION['message']); ?>
+            <?php endif; ?>
     </body>
 </html>

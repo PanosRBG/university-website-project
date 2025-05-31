@@ -35,7 +35,7 @@ CREATE TABLE `applications` (
   `FirstName` varchar(32) NOT NULL,
   `LastName` varchar(32) NOT NULL,
   `AM` varchar(13) NOT NULL,
-  `CoursesPassed` double NOT NULL,
+  `CoursesPassed` varchar(3) NOT NULL,
   `Score` varchar(3) NOT NULL,
   `EngLvl` varchar(2) NOT NULL,
   `MoreLng` varchar(3) DEFAULT NULL,

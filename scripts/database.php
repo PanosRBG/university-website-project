@@ -12,10 +12,10 @@
         $connection = mysqli_connect($db_server, $db_username, $db_password);
         mysqli_set_charset($connection, "utf8");
         mysqli_select_db($connection, 'registered_users');
-        $error_message = 'Connection established.';
+        $error_message = 'Connection established.'; // Only for debugging
     }
     catch(mysqli_sql_exception) {
-        $error_message = 'Connection lost.';
+        $error_message = 'Connection lost.'; // Only for debugging
         header('Location: ../index.php');
         exit();
     }
