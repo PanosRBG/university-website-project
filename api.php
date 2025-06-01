@@ -14,7 +14,7 @@ $input = json_decode(file_get_contents('php://input'), true);
 switch ($method) {
     case 'GET':
         if (isset($_GET['id'])) {
-            $id = $_GET['id'];
+            $university_id = $_GET['id'];
             $result = $con->query("SELECT * FROM users WHERE id=$id");
             $data = $result->fetch_assoc();
             echo json_encode($data);
