@@ -15,7 +15,7 @@ switch ($method) {
     case 'GET':
         if (isset($_GET['id'])) {
             $university_id = $_GET['id'];
-            $result = $con->query("SELECT * FROM users WHERE id=$id");
+            $result = $con->query("SELECT * FROM users WHERE id=$university_id");
             $data = $result->fetch_assoc();
             echo json_encode($data);
         }else {
