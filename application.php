@@ -3,8 +3,17 @@
 <?php 
     session_start();
     include('scripts/database.php');
+
+    if(isset($_SESSION['user'])) {
+        $user = $_SESSION['user'];
+    }
+    else {
+        header('Location: index.php');
+        session_destroy();
+    }
+
     $user_info = mysqli_fetch_assoc( 
-        mysqli_query($connection, "SELECT * FROM users WHERE Username='{$_SESSION['user']}'"));
+        mysqli_query($connection, "SELECT * FROM users WHERE Username='$user'"));
 
     if($user_info) {
         $firstname = $user_info['FirstName'];

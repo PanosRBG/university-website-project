@@ -3,9 +3,20 @@
     session_start();
     include('database.php');
 
-    $dir = __DIR__."/../uploads/".$_SESSION['user'];
+    if(isset($_SESSION['user'], $_SESSION['userID'])) {
+        $user = $_SESSION['user'];
+        $userID = $_SESSION['userID'];
+    }
+    else {
+        $_SESSION['message'] = 'You need to be logged in to perform this action.';
+        mysqli_close($connection);
+        header('Location: ../index.php');
+        exit();
+    }
+
+    $dir = __DIR__."/../uploads/".$user;
     if(!is_dir($dir)) {
-        mkdir($dir, 0755);
+        mkdir($dir);
     }
 
     if(isset($_POST['firstname'], 
@@ -79,7 +90,7 @@
         "INSERT INTO applications 
         (FirstName, LastName, AM, CoursesPassed, Score, EngLvl, MoreLng, FirstUni, SecondUni, ThirdUni, GradeFile, EngCert, OthrCert, Accepted, UserID) 
         VALUES 
-        ('$firstname','$lastname','$am','$courses','$avgscore','$languagelevel','$extralangs', '$firstuni', '$seconduni', '$thirduni', '$grades', '$cert','$others', NULL, '{$_SESSION['userID']}')");
+        ('$firstname','$lastname','$am','$courses','$avgscore','$languagelevel','$extralangs', '$firstuni', '$seconduni', '$thirduni', '$grades', '$cert','$others', NULL, '$userID')");
     
     if($check) {
         $_SESSION['message'] = 'Application submitted successfuly';
