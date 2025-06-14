@@ -49,6 +49,15 @@
                         <input type="date" id="startdate" name="startdate">
                         -
                         <input type="date" id="enddate" name="enddate">
+                        <script>
+                            const today = new Date();
+                            const yyyy = today.getFullYear();
+                            const mm = String(today.getMonth() + 1).padStart(2, '0');
+                            const dd = String(today.getDate()).padStart(2, '0');
+                            const minDate = `${yyyy}-${mm}-${dd}`;
+                            document.getElementById('startdate').setAttribute('min', minDate);
+                            document.getElementById('enddate').setAttribute('min', minDate);
+                        </script>
                     </p>
 
                     <input class="submit" type="submit" value="Submit">
